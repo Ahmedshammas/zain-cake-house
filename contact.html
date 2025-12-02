@@ -144,7 +144,7 @@
                 <!-- LEFT COLUMN: Contact Form -->
                 <div class="bg-blush p-8 md:p-10 rounded-2xl shadow-2xl reveal">
                     <h2 class="text-4xl font-display text-cocoa mb-6">Send an Enquiry</h2>
-                    <form id="contact-form" class="space-y-4">
+                    <form id="contact-form" action="https://script.google.com/macros/s/AKfycbwg-pcqbJLRqGFPFMtduVVD7qI18Kzitwwtbl7t546ZXqgYwpciFSYY3i3-CMhwjZmI/exec" method="POST" target="hidden_iframe_contact" class="space-y-4">
                         
                         <!-- Name & Phone -->
                         <div class="grid sm:grid-cols-2 gap-4">
@@ -223,7 +223,17 @@
             </div>
         </section>
 
+        
+
+        <!-- Invisible Iframe Target for Silent Form Submission -->
+            <iframe name="hidden_iframe_contact" id="hidden_iframe_contact" style="display: none;" onload="handleiframeload()"></iframe>
+
+            <!-- Mobile Navigation (Floating Bottom Bar) -->
+            <nav id="mobile-nav-fab" class="fixed bottom-0 left-0 right-0 z-40 md:hidden p-3 bg-offwhite/90 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl">
+            </nav>
+
     </main>
+
     
     <!-- Floating Action Button (FAB) -->
     <!-- UPDATED: Phone Number -->
@@ -319,6 +329,6 @@
     </footer>
 
     <!-- Deferred JS Loading -->
-    <script src="assets/js/logic.js"></script>
+    <script src="logic.js"></script>
 </body>
 </html>
