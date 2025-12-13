@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu & Pricing | Zain Cake House - Signature Bakes & Mutta Mittai</title>
+    <meta name="description" content="Explore the full menu of Zain Cake House, featuring Signature Cakes, Cookies, Mutta Mittai, Brownies, and Savory Bakes.">
+    
+    <!-- SEO / PWA / Fonts (Using logo.png) -->
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#F8E9EE">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blush': '#F8E9EE',
+                        'offwhite': '#FFFEFD',
+                        'pistachio': '#DFF5E8',
+                        'cocoa': '#6A4B3B',
+                        'slate': '#2E2E2E',
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    transitionDuration: {
+                        '400': '400ms',
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom Global Styles -->
+    <style>
+        /* General Setup */
+        body { background-color: theme('colors.offwhite'); color: theme('colors.slate'); font-family: theme('fontFamily.body'); }
+        h1, h2, h3 { font-family: theme('fontFamily.display'); }
+        .clip-angle-bottom { clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
+        .clip-angle-top { clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%); }
+        .hover-lift { transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .hover-lift:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 30px rgba(theme('colors.cocoa'), 0.15); }
+        
+        /* Focus Rings (Accessibility) */
+        *:focus-visible { outline: 3px solid theme('colors.pistachio'); outline-offset: 3px; border-radius: 4px; }
+        
+        /* Custom Product Card Layout: Vertical Stack within Grid */
+        .product-card {
+            transition: all 0.4s;
+            height: 100%; /* Ensures cards in the grid stretch vertically */
+        }
+
+        /* Adjusting font sizes for consistency (per user request) */
+        .footer-text-lg { font-size: 1.25rem; /* text-xl */ }
+        .footer-text-base { font-size: 1rem; /* text-base */ }
+        .footer-text-sm { font-size: 0.875rem; /* text-sm */ }
+
+
+        /* Media queries for motion reduction (Accessibility) */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .hover-lift { 
+                transition: none !important; 
+                transform: none !important; 
+                animation: none !important; 
+            }
+            .reveal { opacity: 1 !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    
+    <!-- Navigation Header (Logo Left, Nav Centered - Matches index.html) -->
+    <header class="fixed left-11 right-0 z-50 p-4 md:p-6 hidden md:flex items-center justify-between">
+        
+        <!-- Logo (Left Side) -->
+        <a href="index.html" class="z-20 transform hover:scale-105 transition-transform duration-300" aria-label="Go to Home Page">
+            <img src="logo.png" alt="Zain Cake House Logo" class="w-24 h-24 rounded-full shadow-lg ring-2 ring-slate/20">
+        </a>
+        
+        <!-- Centered Navigation Dock (Moved Upward) -->
+        <nav id="nav-dock" class="backdrop-blur-lg bg-offwhite/50 p-2 rounded-full shadow-lg border border-blush/50 ring-2 ring-slate/70 transition-all duration-400 absolute left-1/2 transform -translate-x-1/2 -translate-y-4">
+            <ul class="flex space-x-2 font-body text-sm font-medium">
+                <li><a href="index.html" class="nav-link text-slate px-4 py-2 rounded-full transition-colors duration-400 hover:bg-blush">Home</a></li>
+                <li><a href="gallery.html" class="nav-link text-slate px-4 py-2 rounded-full transition-colors duration-400 hover:bg-blush">Gallery</a></li>
+                <li class="relative"><a href="menu.html" aria-current="page" class="nav-link bg-blush text-cocoa px-4 py-2 rounded-full transition-colors duration-400 hover:bg-pistachio">Menu</a></li>
+                <li><a href="about.html" class="nav-link text-slate px-4 py-2 rounded-full transition-colors duration-400 hover:bg-blush">About</a></li>
+                <li><a href="contact.html" class="nav-link text-slate px-4 py-2 rounded-full transition-colors duration-400 hover:bg-blush">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Placeholder on the Right to ensure logo stays left -->
+        <div class="w-24 h-24 opacity-0" aria-hidden="true"></div>
+
+    </header>
+
+    <main class="relative">
+        <!-- C) MENU - Hero & Main Content -->
+        <!-- Increased top padding (pt-40) to push content below the large, fixed w-24 logo -->
+        <section class="pt-40 pb-16 bg-pistachio"> 
+            <div class="container mx-auto px-4 reveal">
+                <h1 class="text-5xl md:text-7xl font-display text-cocoa text-center mb-4">Our Full Menu</h1>
+                <p class="text-xl text-slate/80 text-center max-w-3xl mx-auto">Explore our premium selection of Cakes, Brownies, Cookies, and Mutta Mittai. <br> Prices listed are starting prices—customizations may vary.</p>
+            </div>
+        </section>
+
+    
+        <!-- Menu Categories -->
+        <section class="container mx-auto px-4 py-18">
+            
+            <!-- Category Navigation (Hidden) - Only for anchors -->
+            <nav class="hidden" aria-label="Menu Categories">
+                <ul class="flex flex-wrap justify-center gap-4 text-slate font-body font-medium">
+                    <li><a href="#brownies">Brownies</a></li>
+                    <li><a href="#custom">Custom Birthday</a></li>
+                    <li><a href="#cookies">Cookies</a></li>
+                    <li><a href="#mithai">Mutta Mittai</a></li>
+                </ul>
+            </nav>
+
+            <!-- 1. SIGNATURE BROWNIES (3-Column Centered Grid) -->
+            <h2 id="brownies" class="text-4xl font-display text-cocoa mt-24 mb-12 border-b-2 border-blush pb-3 reveal text-center">Signature Brownies (Starts from ₹220)</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+                <!-- Product Card 1: Fudge Cocoa Brownie (cake2.jpg) -->
+                <article class="product-card bg-blush/80 rounded-2xl shadow-xl overflow-hidden hover-lift reveal delay-100 text-center">
+                    <div class="h-48 overflow-hidden relative mx-auto">
+                        <img src="img/cake2.jpg" alt="Rich dark cocoa fudge brownie squares." class="w-full h-full object-cover object-center">
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-slate mb-3">Fudge Cocoa Brownie</h3>
+                        </div>
+                        <div>
+                            <p class="text-cocoa font-bold mb-3 footer-text-base">Starts from ₹220 (Box of 6)</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product Card 2: Peanut Butter Swirl (cake4.jpg) -->
+                <article class="product-card bg-blush/80 rounded-2xl shadow-xl overflow-hidden hover-lift reveal delay-200 text-center">
+                    <div class="h-48 overflow-hidden relative mx-auto">
+                        <img src="img/cake4.jpg" alt="Peanut Butter Swirl Brownie" class="w-full h-full object-cover object-center">
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-slate mb-3">Peanut Butter Swirl</h3>
+                        </div>
+                        <div>
+                            <p class="text-cocoa font-bold mb-3 footer-text-base">Starts from ₹250 (Box of 6)</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product Card 3: Salted Caramel Brownie (cake5.jpg) -->
+                <article class="product-card bg-blush/80 rounded-2xl shadow-xl overflow-hidden hover-lift reveal delay-300 text-center">
+                    <div class="h-48 overflow-hidden relative mx-auto">
+                        <img src="img/cake5.jpg" alt="Salted Caramel Brownie with sauce" class="w-full h-full object-cover object-center">
+                        <span class="absolute top-3 right-3 bg-cocoa text-offwhite text-xs font-semibold px-2 py-0.5 rounded-full uppercase">Must Try</span>
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-slate mb-3">Salted Caramel Brownie</h3>
+                        </div>
+                        <div>
+                            <p class="text-cocoa font-bold mb-3 footer-text-base">Starts from ₹240 (Box of 6)</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+
+            <!-- 2. CUSTOMIZED BIRTHDAY CAKES (4-Column Grid) -->
+            <h2 id="custom" class="text-4xl font-display text-cocoa mt-24 mb-12 border-b-2 border-blush pb-3 reveal text-center">Custom Birthday Cakes (Quote Required)</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                 <!-- Product Card 4: Fig & Salted Caramel Cake (cake7.jpg) -->
+                <article class="product-card bg-blush/80 rounded-2xl shadow-xl overflow-hidden hover-lift reveal delay-200 text-center">
+                    <div class="h-48 overflow-hidden relative mx-auto">
+                        <img src="img/cake7.jpg" alt="Tiered Fig & Salted Caramel Cake" class="w-full h-full object-cover object-center">
+                        <span class="absolute top-3 left-3 bg-pistachio text-slate text-xs font-semibold px-2 py-0.5 rounded-full uppercase">Wedding</span>
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-slate mb-3">Fig & Salted Caramel</h3>
+                        </div>
+                        <div>
+                            <p class="text-cocoa font-bold mb-3 footer-text-base">Starts from ₹700 (Custom)</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product Card 5: Minimalist Blooms (cake10.png) -->
+                <article class="product-card bg-blush/80 rounded-2xl shadow-xl overflow-hidden hover-lift reveal delay-400 text-center">
+                    <div class="h-48 overflow-hidden relative mx-auto">
+                        <img src="img/cake10.png" alt="Minimalist White Cake with Flowers" class="w-full h-full object-cover object-center">
+                        <span class="absolute top-3 right-3 bg-cocoa text-offwhite text-xs font-semibold px-2 py-0.5 rounded-full uppercase">Kids</span>
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-slate mb-3">Minimalist Blooms</h3>
+                        </div>
+                        <div>
+                            <p class="text-cocoa font-bold mb-3 footer-text-base">Starts from ₹600 (Custom)</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Product Card 6: Themed Baby Shower Cake (cake9.png) -->
+                <article class="product-card bg-blush/80 rounded-2xl shadow-xl overflow-hidden hover-lift reveal delay-600 text-center">
+                    <div class="h-48 overflow-hidden relative mx-auto">
+                        <img src="img/cake9.png" alt="Custom Baby Themed Cake" class="w-full h-full object-cover object-center">
+                        <span class="absolute top-3 left-3 bg-pistachio text-slate text-xs font-semibold px-2 py-0.5 rounded-full uppercase">Kids</span>
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-slate mb-3">Themed Baby Shower</h3>
+                        </div>
+                        <div>
+                            <p class="text-cocoa font-bold mb-3 footer-text-base">Price Varies</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product Card 7: Elegant Two-Tone Buttercream (cake11.png) -->
+                <article class="product-card bg-blush/80 rounded-2xl shadow-xl overflow-hidden hover-lift reveal delay-800 text-center">
+                    <div class="h-48 overflow-hidden relative mx-auto">
+                        <img src="img/cake11.jpg" alt="Elegant Two-Tone Buttercream Cake" class="w-full h-full object-cover object-center">
+                        <span class="absolute top-3 left-3 bg-pistachio text-slate text-xs font-semibold px-2 py-0.5 rounded-full uppercase">Premium</span>
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-slate mb-3">Two-Tone Buttercream</h3>
+                        </div>
+                        <div>
+                            <p class="text-cocoa font-bold mb-3 footer-text-base">Starts from ₹550</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+
+            <!-- 3. COOKIES (3-Column Centered Grid) -->
+            <h2 id="cookies" class="text-4xl font-display text-cocoa mt-24 mb-12 border-b-2 border-blush pb-3 reveal text-center">Artisan Cookies (Starts from ₹30)</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                
+                <!-- Cookie Card 1 (Choc Chip) -->
+                <article class="product-card bg-offwhite p-4 rounded-xl shadow-md hover-lift reveal delay-100 text-center">
+                    <div class="h-48 overflow-hidden rounded-lg relative mb-4 mx-auto">
+                        <img src="img/cookie1.png" alt="Chocolate Chip Cookie" class="w-full h-full object-cover object-center">
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-cocoa mb-3">Classic Choc Chip</h3>
+                        </div>
+                        <div class="mt-auto pt-2 border-t border-blush">
+                            <p class="text-cocoa font-bold mb-2 footer-text-base">Starts from ₹30 / piece</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cookie Card 2 (Oatmeal Raisin) -->
+                <article class="product-card bg-offwhite p-4 rounded-xl shadow-md hover-lift reveal delay-200 text-center">
+                    <div class="h-48 overflow-hidden rounded-lg relative mb-4 mx-auto">
+                        <img src="img/cookie2.jpg" alt="Oatmeal Raisin Cookie" class="w-full h-full object-cover object-center">
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-cocoa mb-3">Oatmeal & Raisin Spice</h3>
+                        </div>
+                        <div class="mt-auto pt-2 border-t border-blush">
+                            <p class="text-cocoa font-bold mb-2 footer-text-base">Starts from ₹35 / piece</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cookie Card 3 (Double Cocoa Fudge) -->
+                <article class="product-card bg-offwhite p-4 rounded-xl shadow-md hover-lift reveal delay-300 text-center">
+                    <div class="h-48 overflow-hidden rounded-lg relative mb-4 mx-auto">
+                        <img src="img/cookie3.jpg" alt="Double Cocoa Fudge Cookie" class="w-full h-full object-cover object-center">
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-cocoa mb-3">Double Cocoa Fudge</h3>
+                        </div>
+                        <div class="mt-auto pt-2 border-t border-blush">
+                            <p class="text-cocoa font-bold mb-2 footer-text-base">Starts from ₹40 / piece</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+
+            <!-- 4. TRADITIONAL MUTTA MITTAI (2-Column Centered Grid) -->
+            <h2 id="mithai" class="text-4xl font-display text-cocoa mt-24 mb-12 border-b-2 border-blush pb-3 text-center">Traditional Mutta Mittai (Starts from ₹150)</h2>
+            
+            <div class="grid md:grid-cols-2 max-w-4xl gap-6 mx-auto">
+
+                <!-- Mutta Mittai Card 1 -->
+                <article class="product-card bg-offwhite p-4 rounded-xl shadow-md hover-lift reveal delay-100 text-center">
+                    <div class="h-48 overflow-hidden rounded-lg relative mx-auto">
+                        <img src="img/mutta1.png" alt="Traditional Mutta Mittai Sweet" class="w-full h-full object-cover object-center">
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-cocoa mb-3">Classic Mutta Mittai</h3>
+                        </div>
+                        <div class="mt-auto pt-2 border-t border-blush">
+                            <p class="text-cocoa font-bold mb-2 footer-text-base">Starts from ₹150 / 250g</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Mutta Mittai Card 2 -->
+                <article class="product-card bg-offwhite p-4 rounded-xl shadow-md hover-lift reveal delay-200 text-center">
+                    <div class="h-48 overflow-hidden rounded-lg relative mb-4 mx-auto">
+                        <img src="img/mutta2.png" alt="Premium Pista Mutta Mittai" class="w-full h-full object-cover object-center">
+                    </div>
+                    <div class="p-4 flex flex-col justify-between flex-grow">
+                        <div>
+                            <h3 class="font-display text-xl text-cocoa mb-3">Pista Deluxe Mittai</h3>
+                        </div>
+                        <div class="mt-auto pt-2 border-t border-blush">
+                            <p class="text-cocoa font-bold mb-2 footer-text-base">Starts from ₹200 / 250g</p>
+                            <a href="contact.html#contact-form"
+                                class="w-full block bg-cocoa text-offwhite font-semibold py-2 rounded-full hover:bg-slate transition-colors duration-300 footer-text-sm"
+                                aria-label="Order Enquiry Now">
+                                Order Enquiry Now
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+        </section>
+        
+        
+
+    </main>
+
+    
+    <!-- Mobile Navigation (Floating Bottom Bar) -->
+    <nav id="mobile-nav-fab" class="fixed top-0 left-0 right-0 z-40 md:hidden p-3 bg-offwhite/90 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-b-3xl">
+        <ul class="flex justify-around text-xs font-medium text-slate">
+            <li><a href="index.html" class="flex flex-col items-center p-1 text-slate hover:text-cocoa transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Home
+            </a></li>
+            <li><a href="gallery.html" class="flex flex-col items-center p-1 text-slate hover:text-cocoa transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.08-3.08a2 2 0 0 0-2.83 0L6 21"/></svg>
+                Gallery
+            </a></li>
+            <li><a href="menu.html" class="flex flex-col items-center p-1 text-cocoa font-bold" aria-current="page">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h18v18H3zM8 8h8M8 12h8M8 16h8"/></svg>
+                Menu
+            </a></li>
+            <li><a href="about.html" class="flex flex-col items-center p-1 text-slate hover:text-cocoa transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                About
+            </a></li>
+            <li><a href="contact.html" class="flex flex-col items-center p-1 text-slate hover:text-cocoa transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Contact
+            </a></li>
+        </ul>
+    </nav>
+    
+    <!-- Footer (Matches index.html) -->
+    <footer class="pt-12 md:pt-24 bg-blush text-slate">
+        <div class="h-12 w-full bg-offwhite" style="clip-path: polygon(0 0, 100% 100%, 100% 0);"></div>
+        
+        <div class="container mx-auto px-6 pt-8 md:pt-20 pb-16 grid grid-cols-2 lg:grid-cols-5 gap-x-10 gap-y-12 border-t border-blush/80">
+            <!-- Col 1: Mission & Social Icons (Spans 2 columns on desktop) -->
+            <div class="col-span-2 lg:col-span-2">
+            <!-- Logo removed here to eliminate duplication -->
+            <p class="footer-text-base max-w-sm">Baking with passion to deliver the lightest, most luxurious desserts for your cherished moments, including our great brownies!</p>
+            <div class="flex space-x-3 mt-4 text-cocoa">
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/9150138375?text=Hi%20Zain%20Cake%20House" target="_blank" aria-label="Order on WhatsApp">
+                    <img src="img/logos/whtsp.png" alt="WhatsApp Icon" class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                </a>
+                <!-- Instagram Link -->
+                <a href="https://instagram.com/zains_cake_house" target="_blank" aria-label="Visit Instagram Profile">
+                    <img src="img/logos/insta.png" alt="Instagram Icon" class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                </a>
+                <!-- Facebook Link (Direct Profile ID URL) -->
+                <a href="https://facebook.com/profile.php?id=61581894212205" target="_blank" aria-label="Visit Facebook Profile">
+                    <img src="img/logos/facebook.png" alt="Facebook Icon" class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                </a>
+            </div>
+        </div>
+    
+    <!-- Col 2: Quick Links (No changes here) -->
+    <div class="col-span-1 lg:col-span-1">
+        <h4 class="font-body footer-text-lg font-semibold mb-4 text-cocoa">Quick Links</h4>
+        <ul class="space-y-2 footer-text-base">
+            <li><a href="index.html" class="hover:text-cocoa transition-colors">Home</a></li>
+            <li><a href="about.html" class="hover:text-cocoa transition-colors">Our Story</a></li>
+            <li><a href="contact.html#map" class="hover:text-cocoa transition-colors">Visit Us</a></li>
+            <li><a href="contact.html#form" class="hover:text-cocoa transition-colors">Enquiry</a></li>
+        </ul>
+    </div>
+    
+    <!-- Col 3: Menu Highlights (Streamlined to 4 main categories) -->
+    <div class="col-span-1 lg:col-span-1">
+        <h4 class="font-body footer-text-lg font-semibold mb-4 text-cocoa">Menu Highlights</h4>
+        <ul class="space-y-2 footer-text-base">
+            <li><a href="menu.html#signature" class="hover:text-cocoa transition-colors">Signature Cakes</a></li>
+            <li><a href="menu.html#brownies" class="hover:text-cocoa transition-colors">Signature Brownies</a></li>
+            <li><a href="menu.html#cookies" class="hover:text-cocoa transition-colors">Artisan Cookies</a></li>
+            <li><a href="menu.html#mithai" class="hover:text-cocoa transition-colors">Mutta Mittai</a></li>
+        </ul>
+    </div>
+    
+    <!-- Col 4: Contact (Updated with specific location info) -->
+    <div class="col-span-1 lg:col-span-1">
+        <h4 class="font-body footer-text-lg font-semibold mb-4 text-cocoa">Contact</h4>
+        <p class="footer-text-base">Email: <a href="mailto:hello@zaincakehouse.com" class="hover:text-cocoa transition-colors">hello@zaincakehouse.com</a></p>
+        <p class="footer-text-base">Phone: <a href="tel:+919150138375" class="hover:text-cocoa transition-colors">+91 9150138375</a></p>
+        <p class="footer-text-base mt-4">Location: Medavakkam, Pallikaranai, Velachery</p>
+    </div>
+    </div>
+        
+        <!-- Copyright -->
+        <div class="border-t border-slate/10 py-4 text-center text-sm text-slate/70">
+            &copy; <span id="current-year-footer"></span> Zain Cake House. All rights reserved. Premium Bakes.
+        </div>
+    </footer>
+
+    <!-- Deferred JS Loading -->
+    <script src="logic.js"></script>
+</body>
+</html>

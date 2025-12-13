@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zain Cake House | Artisanal & Premium Boutique Bakery</title>
+    <meta name="description" content="Discover soft, airy, and premium custom cakes from Zain Cake House. Offering eggless options and 3KM free delivery.">
+    
+    <!-- SEO / PWA / Fonts -->
+    <!-- UPDATED: Using logo.jpg for favicon -->
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#F8E9EE">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Zain Cake House | Artisanal & Premium Boutique Bakery">
+    <meta property="og:description" content="Soft, airy, and premium custom cakes for every occasion.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/index.html">
+    <meta property="og:image" content="img/cake1.jpg">
+
+    <!-- Preload Fonts for performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blush': '#F8E9EE',
+                        'offwhite': '#FFFEFD',
+                        'pistachio': '#DFF5E8',
+                        'cocoa': '#6A4B3B',
+                        'slate': '#2E2E2E',
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    transitionDuration: {
+                        '400': '400ms',
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Custom Global Styles -->
+    <style>
+        /* General Setup */
+        body { background-color: theme('colors.offwhite'); color: theme('colors.slate'); font-family: theme('fontFamily.body'); }
+        h1, h2, h3 { font-family: theme('fontFamily.display'); }
+        .clip-angle-bottom { clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
+        .clip-angle-top { clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%); }
+        .hover-lift { transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .hover-lift:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 30px rgba(theme('colors.cocoa'), 0.15); }
+        
+        /* Focus Rings (Accessibility) */
+        *:focus-visible { outline: 3px solid theme('colors.pistachio'); outline-offset: 3px; border-radius: 4px; }
+
+        /* Carousel scrollbar hide */
+        .carousel-inner::-webkit-scrollbar { display: none; }
+        .carousel-inner { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Media queries for parallax motion reduction (Accessibility) */
+        @media (prefers-reduced-motion: reduce) {
+            .parallax-bg, .reveal { 
+                transition: none !important; 
+                transform: none !important; 
+                animation: none !important; 
+            }
+            .reveal { opacity: 1 !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    
+    <!-- Navigation Dock (Desktop) -->
+    <header class="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 hidden md:flex justify-center">
+        <nav id="nav-dock" class="backdrop-blur-lg bg-offwhite/50 p-2 rounded-full shadow-lg border border-blush/50 ring-2 ring-cocoa transition-all duration-400">
+            <ul class="flex space-x-2 font-body text-sm font-medium">
+                <li><a href="index.html" aria-current="page" class="nav-link bg-blush text-cocoa px-4 py-2 rounded-full transition-colors duration-400 hover:bg-pistachio">Home</a></li>
+                <li><a href="gallery.html" class="nav-link text-slate px-4 py-2 rounded-full transition-colors duration-400 hover:bg-blush">Gallery</a></li>
+                <li><a href="menu.html" class="nav-link text-slate px-4 py-2 rounded-full transition-colors duration-400 hover:bg-blush">Menu</a></li>
+                <li><a href="about.html" class="nav-link text-slate px-4 py-2 rounded-full transition-colors duration-400 hover:bg-blush">About</a></li>
+                <li><a href="contact.html" class="nav-link text-slate px-4 py-2 rounded-full transition-colors duration-400 hover:bg-blush">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- A) HOME - Hero Section (Video Background) -->
+        <section class="relative h-[80vh] md:h-[100vh] flex items-center justify-center overflow-hidden">
+            <!-- Background Video (Shifted Left on Mobile) -->
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover object-[65%] md:object-center">
+                <source src="vid/cakevid1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-blush/40 to-slate/20"></div>
+            
+            <div class="relative z-10 text-center p-6 max-w-4xl text-offwhite reveal">
+                <p class="text-xl md:text-2xl font-body font-light uppercase tracking-widest text-pistachio/80 mb-4">Artisanal. Soft. Premium.</p>
+                <h1 class="text-6xl sm:text-7xl md:text-9xl font-display font-extrabold leading-tight drop-shadow-lg">Zain Cake House</h1>
+                <p class="mt-6 text-2xl md:text-3xl font-display italic max-w-lg mx-auto drop-shadow-md">Indulge_Enjoy_Repeat</p>
+                <div class="mt-10 flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="menu.html" class="bg-cocoa text-offwhite font-body font-semibold px-8 py-2 md:py-4 rounded-full transition-transform hover-lift hover:bg-slate shadow-xl duration-400" aria-label="View Menu">View Menu</a>
+                    <!-- UPDATED: Phone Number -->
+                    <a href="https://wa.me/9150138375?text=Hi%20Zain%20Cake%20House" target="_blank" class="bg-pistachio text-slate font-body font-semibold px-8 py-2 md:py-4 rounded-full transition-transform hover-lift hover:bg-offwhite shadow-xl duration-400" aria-label="Order on WhatsApp (opens in new tab)">Order on WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- A) HOME - Highlights/Offset Features -->
+        <section class="py-8 md:py-24 bg-offwhite">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl md:text-5xl text-center font-display text-cocoa mb-16 reveal">Our Signature Promises</h2>
+                
+                <div class="grid md:grid-cols-3 gap-10 md:gap-20">
+                    <!-- Feature Card 1 -->
+                    <div class="bg-blush p-8 rounded-3xl shadow-xl hover-lift reveal delay-200" role="region" aria-label="Custom Cakes Feature">
+                        <div class="text-5xl mb-4 text-cocoa">🎂</div>
+                        <h3 class="text-2xl font-display text-slate mb-3">Custom Cakes</h3>
+                        <p class="text-slate/80">From grand weddings to intimate birthdays, we craft bespoke designs that tell your unique story. Imagination is the only limit.</p>
+                    </div>
+                    <!-- Feature Card 2 (Aligned and Cocoa Colored) -->
+                    <div class="bg-cocoa p-8 rounded-3xl shadow-xl hover-lift reveal delay-400" role="region" aria-label="Eggless Options Feature">
+                        <div class="text-5xl mb-4 text-offwhite">🥚🚫</div>
+                        <h3 class="text-2xl font-display text-offwhite mb-3">Eggless Options</h3>
+                        <p class="text-offwhite/80">Deliciousness without compromise. Our eggless bakes maintain the signature light and airy texture you expect from Zain Cake House.</p>
+                    </div>
+                    <!-- Feature Card 3 - UPDATED: Delivery Info -->
+                    <div class="bg-blush p-8 rounded-3xl shadow-xl hover-lift reveal delay-600" role="region" aria-label="Same-Day Delivery Feature">
+                        <div class="text-5xl mb-4 text-cocoa">🚀</div>
+                        <h3 class="text-2xl font-display text-slate mb-3">3KM Free Delivery</h3>
+                        <p class="text-slate/80">Enjoy complimentary delivery if you are within a 3km radius of our location (Medavakkam, Pallikaranai, Velachery area).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A) HOME - Product Carousel -->
+            <section id="product-carousel" class="pt-8 md:pt-8 overflow-hidden bg-blush reveal max-w-7xl mx-auto">
+                <h2 class="text-4xl md:text-5xl text-center font-display text-cocoa mb-12">Our Latest Creations</h2>
+                <div class="relative overflow-hidden max-w-6xl mx-auto" role="region" aria-live="polite" tabindex="0">
+                    
+                <!-- Navigation Buttons (Now Hidden, Relying on Drag/Autoplay) -->
+                <button id="carousel-prev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-offwhite/80 backdrop-blur-sm p-3 rounded-full shadow-lg ring-1 ring-blush/50 text-cocoa hover:bg-offwhite transition-colors duration-300 !hidden" aria-label="Previous Slide">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button id="carousel-next" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-offwhite/80 backdrop-blur-sm p-3 rounded-full shadow-lg ring-1 ring-blush/50 text-cocoa hover:bg-offwhite transition-colors duration-300 !hidden" aria-label="Next Slide">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+
+                    <!-- Carousel Inner Content (Now Scrolls Horizontally on Mobile) -->
+                <div class="carousel-inner flex gap-8 p-4 md:p-8 w-full transition-transform duration-400 ease-in-out lg:justify-center overflow-x-auto overscroll-x-contain">
+    
+                    <!-- Item 1 (Cake 7 Image: Tiered, Decorated Cake) -->
+                    <div class="carousel-item flex-shrink-0 w-80 md:w-[calc(33.333%-1.333rem)] bg-offwhite rounded-xl shadow-2xl hover-lift p-4" role="group" aria-label="Slide 1 of 3">
+                        <img loading="lazy" src="img/cake7.jpg" srcset="img/cake7.jpg 600w, img/cake7.jpg 1200w" sizes="(max-width: 640px) 100vw, 33vw" alt="Tiered cake with fig and salted caramel drip." class="w-full h-64 object-cover rounded-lg aspect-square">
+                        <h3 class="font-display text-2xl text-slate mt-4">Fig & Salted Caramel Cake</h3>
+                        <p class="text-sm text-cocoa font-medium">Seasonal | Starting from $42</p>
+                    </div>
+                    
+                    <!-- Item 2 (Cake 1 Image: Dark, Stacked Brownies/Slab) -->
+                    <div class="carousel-item flex-shrink-0 w-80 md:w-[calc(33.333%-1.333rem)] bg-offwhite rounded-xl shadow-2xl hover-lift p-4" role="group" aria-label="Slide 2 of 3">
+                        <img loading="lazy" src="img/cake1.jpg" srcset="img/cake1.jpg 600w, img/cake1.jpg 1200w" sizes="(max-width: 640px) 100vw, 33vw" alt="Rich, fudgy layered cocoa stack." class="w-full h-64 object-cover rounded-lg aspect-square">
+                        <h3 class="font-display text-2xl text-slate mt-4">Rich Cocoa Fudge Stack</h3>
+                        <p class="text-sm text-cocoa font-medium">Best Seller | Starting from $45</p>
+                    </div>
+                    
+                    <!-- Item 3 (Cake 8 Image: Birthday Cake with Candles) -->
+                    <div class="carousel-item flex-shrink-0 w-80 md:w-[calc(33.333%-1.333rem)] bg-offwhite rounded-xl shadow-2xl hover-lift p-4" role="group" aria-label="Slide 3 of 3">
+                        <img loading="lazy" src="img/cake8.jpg" srcset="img/cake8.jpg 600w, img/cake8.jpg 1200w" sizes="(max-width: 640px) 100vw, 33vw" alt="A brightly decorated celebration birthday cake with many colorful candles." class="w-full h-64 object-cover rounded-lg aspect-square">
+                        <h3 class="font-display text-2xl text-slate mt-4">Celebration Birthday Cake</h3>
+                        <p class="text-sm text-cocoa font-medium">Custom Order | Starting from $22</p>
+                    </div>
+
+                </div>
+                </div>
+                <div class="text-center mt-8">
+                    <a href="gallery.html" class="inline-flex items-center text-cocoa border-b-2 border-cocoa font-medium pb-1 hover:text-slate transition-colors duration-400">
+                        Explore Full Gallery
+                        <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </a>
+                </div>
+            </section>
+
+               
+        
+        <!-- A) HOME - Asymmetric Feature Band -->
+        <!-- A) HOME - Asymmetric Feature Band -->
+        <section class="pt-8 pb-24 overflow-hidden bg-offwhite">
+            <!-- Angled Divider Top -->
+            <div class="w-full h-16 bg-blush clip-angle-top -mt-16 relative z-10 hidden md:block" aria-hidden="true"></div>
+            
+            <div class="container mx-auto px-4 md:flex items-center gap-16">
+                <!-- Text Content (Left) -->
+                <!-- Text Content (Left) -->
+                <div class="md:w-1/2 max-w-xl mb-12 md:mb-0 reveal">
+                    <p class="text-xl font-body text-cocoa font-semibold mb-3 uppercase tracking-widest">Our Philosophy</p>
+                    <h2 class="text-5xl font-display text-slate mb-6">Lightness in Every Layer</h2>
+                    <p class="text-lg text-slate/90 leading-relaxed mb-6">At Zain Cake House, we believe a perfect cake is more than just ingredients; it's a feeling...
+                    <p class="text-lg text-slate/90 leading-relaxed italic border-l-4 border-blush pl-4">We use only the finest natural extracts and carefully sourced cocoa to deliver clean, unforgettable flavors.</p>
+                    <a href="about.html" class="mt-8 inline-block bg-pistachio text-slate font-body font-semibold px-6 py-3 rounded-full transition-transform hover-lift hover:bg-blush shadow-md duration-400">Read Our Full Story</a>
+                </div>
+
+                <!-- Image Stack (Right) - Improved Asymmetric Layout -->
+                <div class="md:w-1/2 relative h-96 md:h-[600px] reveal delay-400">
+                    <!-- Layer 1 (Background - Clean, Rectangular Frame) -->
+                    <div class="absolute w-[75%] h-[75%] top-8 left-0 bg-offwhite p-6 rounded-3xl shadow-2xl ring-2 ring-slate/70 rotate-[-3deg] transition-all duration-400">
+                        <img loading="lazy" src="img/cookie3.jpg" alt="Pistachio and matcha cake slice, representing elegance." class="w-full h-full object-cover object-center rounded-xl opacity-90">
+                    </div>
+                    <!-- Layer 2 (Foreground - Stable and Tilted with Ring) -->
+                    <div class="absolute w-3/5 h-3/5 bottom-0 right-0 md:top-1/2 md:right-0 bg-offwhite p-4 rounded-3xl shadow-xl ring-2 ring-slate/70 rotate-[5deg] transition-all duration-400">
+                        <!-- Added subtle ring to match Layer 1 -->
+                        <img loading="lazy" src="img/cake6.jpg" alt="Zesty lemon drizzle loaf cake, representing freshness." class="w-full h-full object-cover object-center rounded-3xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Floating Action Button (FAB) -->
+    <!-- UPDATED: Phone Number -->
+    <a href="https://wa.me/9150138375?text=Hi%20Zain%20Cake%20House" target="_blank" id="whatsapp-fab" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-40 bg-pistachio text-slate p-4 rounded-full shadow-2xl hover:bg-cocoa hover:text-offwhite transition-all duration-400 hover-lift" aria-label="Order Cakes on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.42 8.42 0 0 1 8.5 8.5Z"/></svg>
+    </a>
+    
+    <!-- Mobile Navigation (Floating Bottom Bar) -->
+    <nav id="mobile-nav-fab" class="fixed bottom-0 left-0 right-0 z-40 md:hidden p-3 bg-offwhite/90 backdrop-blur-md shadow-[0_-4px_20px_rgba(0,0,0,0.05)] rounded-t-3xl">
+        <ul class="flex justify-around text-xs font-medium text-slate">
+            <li><a href="index.html" class="flex flex-col items-center p-1 text-slate hover:text-cocoa transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Home
+            </a></li>
+            <li><a href="gallery.html" class="flex flex-col items-center p-1 text-slate hover:text-cocoa transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.08-3.08a2 2 0 0 0-2.83 0L6 21"/></svg>
+                Gallery
+            </a></li>
+            <li><a href="menu.html" class="flex flex-col items-center p-1 text-slate hover:text-cocoa transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3zM8 8h8M8 12h8M8 16h8"/></svg>
+                Menu
+            </a></li>
+            <li><a href="about.html" class="flex flex-col items-center p-1 text-slate hover:text-cocoa transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                About
+            </a></li>
+            <li><a href="contact.html" class="flex flex-col items-center p-1 text-slate hover:text-cocoa transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                Contact
+            </a></li>
+        </ul>
+    </nav>
+
+    <!-- Footer (Matches index.html) -->
+    <footer class="pt-12 md:pt-24 bg-blush text-slate">
+        <div class="h-12 w-full bg-offwhite" style="clip-path: polygon(0 0, 100% 100%, 100% 0);"></div>
+        
+        <div class="container mx-auto px-6 pt-8 md:pt-20 pb-16 grid grid-cols-2 lg:grid-cols-5 gap-x-10 gap-y-12 border-t border-blush/80">
+            <!-- Col 1: Mission & Social Icons (Spans 2 columns on desktop) -->
+            <div class="col-span-2 lg:col-span-2"> 
+                <!-- Logo removed here to eliminate duplication -->
+                <p class="footer-text-base max-w-sm">Baking with passion to deliver the lightest, most luxurious desserts for your cherished moments, including our great brownies!</p>
+                <div class="flex space-x-3 mt-4 text-cocoa">
+                    <!-- WhatsApp Icon -->
+                    <a href="https://wa.me/9150138375?text=Hi%20Zain%20Cake%20House" target="_blank" aria-label="Order on WhatsApp">
+                        <img src="img/logos/whtsp.png" alt="WhatsApp Icon" class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                    </a>
+                    <!-- Instagram Link -->
+                    <a href="https://instagram.com/zains_cake_house" target="_blank" aria-label="Visit Instagram Profile">
+                        <img src="img/logos/insta.png" alt="Instagram Icon" class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                    </a>
+                    <!-- Facebook Link (Direct Profile ID URL) -->
+                    <a href="https://facebook.com/profile.php?id=61581894212205" target="_blank" aria-label="Visit Facebook Profile">
+                        <img src="img/logos/facebook.png" alt="Facebook Icon" class="w-6 h-6 opacity-80 hover:opacity-100 transition-opacity">
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Col 2: Quick Links (No changes here) -->
+            <div class="col-span-1 lg:col-span-1">
+                <h4 class="font-body footer-text-lg font-semibold mb-4 text-cocoa">Quick Links</h4>
+                <ul class="space-y-2 footer-text-base">
+                    <li><a href="index.html" class="hover:text-cocoa transition-colors">Home</a></li>
+                    <li><a href="about.html" class="hover:text-cocoa transition-colors">Our Story</a></li>
+                    <li><a href="contact.html#map" class="hover:text-cocoa transition-colors">Visit Us</a></li>
+                    <li><a href="contact.html#form" class="hover:text-cocoa transition-colors">Enquiry</a></li>
+                </ul>
+            </div>
+            
+            <!-- Col 3: Menu Highlights (Streamlined to 4 main categories) -->
+            <div class="col-span-1 lg:col-span-1">
+                <h4 class="font-body footer-text-lg font-semibold mb-4 text-cocoa">Menu Highlights</h4>
+                <ul class="space-y-2 footer-text-base">
+                    <li><a href="menu.html#signature" class="hover:text-cocoa transition-colors">Signature Cakes</a></li>
+                    <li><a href="menu.html#brownies" class="hover:text-cocoa transition-colors">Signature Brownies</a></li>
+                    <li><a href="menu.html#cookies" class="hover:text-cocoa transition-colors">Artisan Cookies</a></li>
+                    <li><a href="menu.html#mithai" class="hover:text-cocoa transition-colors">Mutta Mittai</a></li>
+                </ul>
+            </div>
+            
+            <!-- Col 4: Contact (Updated with specific location info) -->
+            <div class="col-span-1 lg:col-span-1">
+                <h4 class="font-body footer-text-lg font-semibold mb-4 text-cocoa">Contact</h4>
+                <p class="footer-text-base">Email: <a href="mailto:hello@zaincakehouse.com" class="hover:text-cocoa transition-colors">hello@zaincakehouse.com</a></p>
+                <p class="footer-text-base">Phone: <a href="tel:+919150138375" class="hover:text-cocoa transition-colors">+91 9150138375</a></p>
+                <p class="footer-text-base mt-4">Location: Medavakkam, Pallikaranai, Velachery</p>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="border-t border-slate/10 py-4 text-center text-sm text-slate/70">
+            &copy; <span id="current-year-footer"></span> Zain Cake House. All rights reserved. Premium Bakes.
+        </div>
+    </footer>
+
+    <!-- Deferred JS Loading -->
+    <script src="logic.js"></script>
+</body>
+</html>
